@@ -1,0 +1,29 @@
+---
+- name: Build and Push Docker Image to ECR
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - ../variable/vars.yml
+  tasks:
+    - name: Build Docker image
+      docker_image:
+        name: my-nginx-image
+        source: build
+        build:
+          path: /home/darsheel/Nginx-website
+          dockerfile: Dockerfile
+        tag: latest
+
+    - name: Log in to AWS ECR
+      shell: |
+        aws ecr get-login-password --region {{ aws_region }} | docker login --username AWS --password-stdin {{ ecr_registry }}
+      register: ecr_login
+      changed_when: false
+
+    - name: Tag Docker image for ECR
+      shell: |
+        docker tag my-nginx-image:latest {{ ecr_registry }}/nginximages:latest
+
+    - name: Push Docker image to ECR
+      shell: |
+        docker push {{ ecr_registry }}/nginximages:latest

@@ -1,0 +1,2 @@
+aws_region: "ap-southeast-2"
+ecr_registry: "011528262341.dkr.ecr.ap-southeast-2.amazonaws.com"
