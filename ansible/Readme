@@ -13,4 +13,4 @@ for running the Ansible playbook to push our image to ecr repo.
 
 Command to run the ansible playbook:
 
-ansible-playbook -i /ansible/inventories/development.ini /ansible/playbook/push_ecr.yml [path to the file is very important, also checking if the path for dockerfile is correct or not
+``ansible-playbook -i /ansible/inventories/development.ini /ansible/playbook/push_ecr.yml`` [path to the file is very important, also checking if the path for dockerfile is correct or not
