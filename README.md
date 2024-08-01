@@ -42,7 +42,7 @@ After checking the state we can decide it to apply, if we are satisfied we use t
 
 ``terraform apply -target=module.ecr```
 
-####
+#### Ansible playbook
 Now we have the ecr repo we need to have a dockerimage image with Nginx and some website content.
 
 we are using a Dockerfile for creating an image and we are using ansible playbook to push the image to ecr repo. [we can do the manually, but we are using ansible so that we can later configure our playbook with our ci/cd to push the image]
