@@ -24,7 +24,7 @@ The other limiation I had was I am not having a register domain name there, i wa
 
 
 
-###Actual Working:
+#### Actual Working:
 
 we need a ecr first to hold the image we have created for a webserver running on nginx, therefore we will need to create a a ecr repo:
 
